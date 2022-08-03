@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Items } from '../items';
 import { ItemsService } from 'src/items.service';
-import { MessageService } from 'src/message.service'; 
+import { outputAst } from '@angular/compiler';
+
+let  btnShow = document.querySelector('money');
+
 
 
 @Component({
@@ -12,14 +15,9 @@ import { MessageService } from 'src/message.service';
 export class ItemsComponent implements OnInit {
 
   items: Items[] = [];
-  selectedItem?: Items;
+  
 
-  onSelect(item: Items): void {
-    this.selectedItem = item;
-    this.messageService.add(`ItemsComponent: Selected items id=${item.id}`);
-  }
-
-  constructor(private itemsService: ItemsService, private messageService: MessageService) { }
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit(): void {
     this.getItems();
@@ -29,4 +27,5 @@ export class ItemsComponent implements OnInit {
     this.itemsService.getItems()
       .subscribe(items => this.items = items)
   }
+
 }

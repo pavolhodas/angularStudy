@@ -1,11 +1,18 @@
 <h2>My Items</h2>
 <ul class="items">
     <li *ngFor="let item of items">
-        <button [class.selected]="item === selectedItem" type="button" (click)="onSelect(item)">
-            <span class="badge">{{item.id}}</span>
-            <span class="name">{{item.name}}</span>
-        </button>
+        <a routerLink="/detail/{{item.id}}">
+            <span class="badge">{{item.id}}</span> {{item.name}}
+          </a>
+
+          <button id="money" type="hidden">buyItem</button>
+          <script>
+            var enoughMoney = ('{{ hero}}');
+            if (enoughMoney) true;
+         
+            document.getElementById("menuProfile").style.display="block";
+            document.getElementById("showProfile").style.display="none";
+         
+            </script>
     </li>
 </ul>
-
-<app-items-detail [items]="selectedItem"></app-items-detail>
