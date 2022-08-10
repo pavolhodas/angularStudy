@@ -1,0 +1,8 @@
+<div *ngIf="hero">
+    <div *ngFor="let item of fItems">
+        <div *ngIf="hero.money >= item.price">
+            fungujeeeee {{item.name}}
+            <button (click)="buyFreeItem(item)"></button>
+        </div>
+    </div>
+</div>

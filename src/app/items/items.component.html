@@ -5,14 +5,14 @@
             <span class="badge">{{item.id}}</span> {{item.name}}
           </a>
 
-          <button id="money" type="hidden">buyItem</button>
-          <script>
-            var enoughMoney = ('{{ hero}}');
-            if (enoughMoney) true;
-         
-            document.getElementById("menuProfile").style.display="block";
-            document.getElementById("showProfile").style.display="none";
-         
-            </script>
+        <ul>
+          <li *ngFor="let hero of heroes">
+            <div *ngIf="item.price <= hero.money" >
+              <a routerLink="/free-items/{{item.id}}">
+                <span >{{hero.id}}</span> buy item
+              </a>
+            </div>
+          </li>
+        </ul>
     </li>
 </ul>
