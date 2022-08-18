@@ -6,6 +6,7 @@
     <div>
       <label for="items-name">Item name: </label>
       <input id="items-name" [(ngModel)]="items.name" placeholder="name">
+      <button *ngIf="!items.isAvalible" type="button" (click)="deleteItem(items)">Sell item</button>
     </div>
   
   </div>

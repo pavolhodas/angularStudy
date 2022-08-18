@@ -3,6 +3,7 @@ import { Items } from '../items';
 import { ItemsService } from 'src/items.service';
 import { outputAst } from '@angular/compiler';
 import { HEROES } from '../mock-heroes';
+import { FItems, ITEMS } from '../mock-items';
 
 let  btnShow = document.querySelector('money');
 
@@ -15,18 +16,13 @@ let  btnShow = document.querySelector('money');
 })
 export class ItemsComponent implements OnInit {
 
-  items: Items[] = [];
-  heroes = HEROES;
+  items = FItems;
+  selectedItem?: Items;
 
-  constructor(private itemsService: ItemsService) { }
-
-  ngOnInit(): void {
-    this.getItems();
+  onSelect(item: Items): void {
+    this.selectedItem = item;
   }
 
-  getItems(): void{
-    this.itemsService.getItems()
-      .subscribe(items => this.items = items)
-  }
-
+constructor() { }
+ngOnInit(): void { }
 }

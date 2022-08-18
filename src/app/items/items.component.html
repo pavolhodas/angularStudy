@@ -1,18 +1,11 @@
 <h2>My Items</h2>
 <ul class="items">
-    <li *ngFor="let item of items">
-        <a routerLink="/detail/{{item.id}}">
-            <span class="badge">{{item.id}}</span> {{item.name}}
-          </a>
+  <li *ngFor="let item of items" [class.selected]="item === selectedItem" (click)="onSelect(item)">
 
-        <ul>
-          <li *ngFor="let hero of heroes">
-            <div *ngIf="item.price <= hero.money" >
-              <a routerLink="/free-items/{{item.id}}">
-                <span >{{hero.id}}</span> buy item
-              </a>
-            </div>
-          </li>
-        </ul>
+  <span class="badge">{{item.id}}</span> {{item.name}} | {{item.price}}
+
+        
     </li>
 </ul>
+
+<app-items-detail [items]="selectedItem"> </app-items-detail>

@@ -45,6 +45,7 @@ export class FreeItemsComponent implements OnInit {
           this.hero.items.push(item);
           const index = this.fItems.indexOf(item);
           this.fItems.splice(index, 1);
+          item.isAvalible = false;
       }
     }
   }
