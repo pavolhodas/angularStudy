@@ -10,6 +10,10 @@ import { ItemsComponent } from './items/items.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { DashboardComponent } from 'src/dashboard/dashboard.component';
 import { FreeItemsComponent } from './free-items/free-items.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,21 @@ import { FreeItemsComponent } from './free-items/free-items.component';
     ItemsDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    FreeItemsComponent
+    FreeItemsComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
+// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+// and returns simulated server responses.
+// Remove it when a real server is ready to receive requests.
+HttpClientInMemoryWebApiModule.forRoot(
+  InMemoryDataService, { dataEncapsulation: false }
+)
   ],
   providers: [
     // no need to place any providers due to the `providedIn` flag...
