@@ -4,6 +4,24 @@
       routerLink="/detail/{{hero.id}}">
       {{hero.name}}
   </a>
-</div>
-
+  
+  <div mdbDropdown class="dropdown">
+	<a
+	  class="btn btn-primary dropdown-toggle"
+	  role="button"
+	  id="dropdownMenuLink"
+	  mdbDropdownToggle
+	  aria-expanded="false"
+	>
+	  Dropdown link
+	</a>
+	<ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+	  <li><a class="dropdown-item" href="#">Action</a></li>
+	  <li><a class="dropdown-item" href="#">Another action</a></li>
+	  <li><a class="dropdown-item" href="#">Something else here</a></li>
+	</ul>
+  </div>
+  
 <app-hero-search></app-hero-search>
+
+
